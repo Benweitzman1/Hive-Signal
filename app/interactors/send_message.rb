@@ -29,7 +29,6 @@ class SendMessage
     sms_result = Twilio::SmsSender.send_sms(@phone_number, @content)
 
     unless sms_result[:success]
-      # Message saved but SMS failed - log warning but don't fail
       Rails.logger.warn "Message saved but SMS sending failed: #{sms_result[:error]}"
     end
 
