@@ -1,0 +1,89 @@
+.message-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+
+  mat-card {
+    margin-bottom: 1rem;
+  }
+
+  .loading-card,
+  .error-card,
+  .empty-card {
+    text-align: center;
+    padding: 2rem;
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    mat-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+  }
+
+  .loading-card {
+    .loading-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+    }
+  }
+
+  .error-card {
+    .error-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f44336;
+    }
+  }
+
+  .empty-card {
+    .empty-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+    }
+  }
+
+  .message-item {
+    width: 100%;
+    padding: 0.5rem 0;
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .phone-number {
+        font-weight: 500;
+        color: #1976d2;
+      }
+
+      .timestamp {
+        font-size: 0.875rem;
+        color: #666;
+      }
+    }
+
+    .message-content {
+      color: #333;
+      line-height: 1.5;
+    }
+  }
+}
