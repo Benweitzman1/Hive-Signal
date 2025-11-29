@@ -4,8 +4,7 @@ class MessageSerializer
       id: message.id.to_s,
       phone_number: message.phone_number,
       content: message.content,
-      created_at: message.created_at.iso8601,
-      session_id: message.session_id
+      created_at: message.created_at.iso8601
     }
   end
 

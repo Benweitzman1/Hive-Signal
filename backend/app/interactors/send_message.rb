@@ -1,10 +1,10 @@
 class SendMessage
   attr_reader :message, :error
 
-  def initialize(phone_number:, content:, session_id:)
+  def initialize(phone_number:, content:, user_id:)
     @phone_number = phone_number
     @content = content
-    @session_id = session_id
+    @user_id = user_id
     @message = nil
     @error = nil
   end
@@ -13,7 +13,7 @@ class SendMessage
     @message = Message.new(
       phone_number: @phone_number,
       content: @content,
-      session_id: @session_id
+      user_id: @user_id
     )
 
     unless @message.valid?

@@ -1,5 +1,7 @@
 module Api
   class MessagesController < ApplicationController
+    before_action :authenticate_user!
+
     def create
       phone_number = params[:phone_number]
       content = params[:content]
@@ -9,12 +11,10 @@ module Api
         return
       end
 
-      session_id = get_or_create_session_id
-
       interactor = SendMessage.new(
         phone_number: phone_number,
         content: content,
-        session_id: session_id
+        user_id: current_user.id.to_s
       )
 
       if interactor.call
@@ -28,14 +28,7 @@ module Api
     end
 
     def index
-      session_id = current_session_id
-
-      unless session_id.present?
-        render json: []
-        return
-      end
-
-      messages = Message.by_session(session_id)
+      messages = Message.by_user(current_user.id.to_s)
       render json: MessageSerializer.serialize_collection(messages)
     rescue StandardError => e
       Rails.logger.error "Error fetching messages: #{e.message}"
