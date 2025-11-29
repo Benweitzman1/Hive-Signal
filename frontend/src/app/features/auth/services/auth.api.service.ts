@@ -18,6 +18,7 @@ export class AuthApiService {
   readonly user = signal<User | null>(null);
   readonly loading = signal<boolean>(false);
   readonly error = signal<string | null>(null);
+  readonly checkingAuth = signal<boolean>(true);
 
   readonly isAuthenticated: Signal<boolean> = computed(
     () => this.user() !== null
@@ -78,12 +79,15 @@ export class AuthApiService {
   }
 
   checkAuth(): void {
+    this.checkingAuth.set(true);
     this.http.get<AuthResponse>(`${this.apiUrl}/current_user`).subscribe({
       next: (response) => {
         this.user.set(response.user);
+        this.checkingAuth.set(false);
       },
       error: () => {
         this.user.set(null);
+        this.checkingAuth.set(false);
       },
     });
   }

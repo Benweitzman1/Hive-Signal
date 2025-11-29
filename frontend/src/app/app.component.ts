@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthApiService } from './features/auth/services/auth.api.service';
 import { LoginComponent } from './features/auth/components/login/login.component';
+import { AuthApiService } from './features/auth/services/auth.api.service';
 import { MessageFormComponent } from './features/messages/components/message-form/message-form.component';
 import { MessageListComponent } from './features/messages/components/message-list/message-list.component';
 
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   readonly title = 'Hive Signal - SMS Messenger';
   readonly isAuthenticated = this.authService.isAuthenticated;
   readonly user = this.authService.user;
+  readonly checkingAuth = this.authService.checkingAuth;
 
   ngOnInit(): void {
     this.authService.checkAuth();
