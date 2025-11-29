@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="message-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Phone Number</mat-label>
+    <input matInput formControlName="phone_number" placeholder="+18777804236" />
+    @if (form.get('phone_number')?.hasError('required')) {
+    <mat-error>Phone number is required</mat-error>
+    } @if (form.get('phone_number')?.hasError('pattern')) {
+    <mat-error>Please enter a valid phone number</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Message</mat-label>
+    <textarea
+      matInput
+      formControlName="content"
+      placeholder="Enter your message..."
+      rows="4"
+    ></textarea>
+    @if (form.get('content')?.hasError('required')) {
+    <mat-error>Message content is required</mat-error>
+    }
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid || loading()"
+    class="submit-button"
+  >
+    @if (loading()) { Sending... } @else { Send Message }
+  </button>
+</form>

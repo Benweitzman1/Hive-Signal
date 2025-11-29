@@ -1,0 +1,53 @@
+<div class="message-list">
+  @if (loading()) {
+  <mat-card class="loading-card">
+    <mat-card-content>
+      <div class="loading-content">
+        <mat-icon>hourglass_empty</mat-icon>
+        <span>Loading messages...</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  } @else if (error()) {
+  <mat-card class="error-card">
+    <mat-card-content>
+      <div class="error-content">
+        <mat-icon>error</mat-icon>
+        <span>{{ error() }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  } @else if (!hasMessages()) {
+  <mat-card class="empty-card">
+    <mat-card-content>
+      <div class="empty-content">
+        <mat-icon>inbox</mat-icon>
+        <p>No messages yet. Send your first message!</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  } @else {
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Messages ({{ messages().length }})</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        @for (message of messages(); track message.id) {
+        <mat-list-item>
+          <div class="message-item">
+            <div class="message-header">
+              <span class="phone-number">{{ message.phone_number }}</span>
+              <span class="timestamp">{{
+                formatDate(message.created_at)
+              }}</span>
+            </div>
+            <div class="message-content">{{ message.content }}</div>
+          </div>
+        </mat-list-item>
+        }
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>
