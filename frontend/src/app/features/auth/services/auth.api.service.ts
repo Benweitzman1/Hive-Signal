@@ -34,18 +34,7 @@ export class AuthApiService {
         this.loading.set(false);
       },
       error: (err) => {
-        let errorMessage = 'Registration failed';
-        if (err.error) {
-          if (typeof err.error === 'string') {
-            errorMessage = err.error;
-          } else if (err.error.error) {
-            errorMessage = err.error.error;
-          } else if (err.error.message) {
-            errorMessage = err.error.message;
-          }
-        } else if (err.message) {
-          errorMessage = err.message;
-        }
+        const errorMessage = err.error?.error || 'Registration failed';
         this.error.set(errorMessage);
         this.loading.set(false);
       },
@@ -93,12 +82,7 @@ export class AuthApiService {
       next: (response) => {
         this.user.set(response.user);
       },
-      error: (err) => {
-        // 404 or 401 means not authenticated, which is fine
-        // Only log unexpected errors
-        if (err.status && err.status !== 404 && err.status !== 401) {
-          console.error('Unexpected error checking auth:', err);
-        }
+      error: () => {
         this.user.set(null);
       },
     });

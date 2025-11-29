@@ -15,7 +15,9 @@ module Api
         sign_in(user)
         render json: { user: serialize_user(user) }, status: :created
       else
-        render json: { error: user.errors.full_messages.join(", ") }, status: :unprocessable_entity
+        error_message = user.errors.full_messages.join(", ")
+        Rails.logger.error "User registration failed: #{error_message}"
+        render json: { error: error_message }, status: :unprocessable_entity
       end
     rescue StandardError => e
       Rails.logger.error "Error in register: #{e.message}"
@@ -33,7 +35,9 @@ module Api
 
       user = User.find_for_authentication(username: username)
 
-      if user && user.valid_password?(password)
+      if user.nil?
+        render json: { error: "Invalid username or password" }, status: :unauthorized
+      elsif user.valid_password?(password)
         sign_in(user)
         render json: { user: serialize_user(user) }, status: :ok
       else
