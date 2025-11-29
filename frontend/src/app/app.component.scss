@@ -10,11 +10,29 @@
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   h1 {
     margin: 0;
     font-size: 1.75rem;
     font-weight: 500;
+    flex: 1;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span {
+      font-size: 0.9rem;
+    }
+
+    button {
+      color: white;
+    }
   }
 }
 

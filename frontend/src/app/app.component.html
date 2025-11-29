@@ -1,9 +1,18 @@
 <div class="app-container">
   <header class="app-header">
     <h1>{{ title }}</h1>
+    @if (isAuthenticated()) {
+    <div class="user-info">
+      <span>Welcome, {{ user()?.username }}</span>
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+    }
   </header>
 
   <main class="app-main">
+    @if (!isAuthenticated()) {
+    <app-login />
+    } @else {
     <section class="form-section">
       <app-message-form />
     </section>
@@ -11,5 +20,6 @@
     <section class="list-section">
       <app-message-list />
     </section>
+    }
   </main>
 </div>

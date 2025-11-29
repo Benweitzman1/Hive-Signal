@@ -1,0 +1,62 @@
+<div class="login-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <h2>{{ isRegisterMode() ? "Create Account" : "Login" }}</h2>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Enter username" />
+      @if (form.get('username')?.hasError('required')) {
+      <mat-error>Username is required</mat-error>
+      } @if (form.get('username')?.hasError('minlength')) {
+      <mat-error>Username must be at least 3 characters</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        placeholder="Enter password"
+      />
+      @if (form.get('password')?.hasError('required')) {
+      <mat-error>Password is required</mat-error>
+      } @if (form.get('password')?.hasError('minlength')) {
+      <mat-error>Password must be at least 6 characters</mat-error>
+      }
+    </mat-form-field>
+
+    @if (error()) {
+    <div class="error-message" role="alert">
+      <strong>Error:</strong> {{ error() }}
+    </div>
+    }
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid || loading()"
+      class="submit-button"
+    >
+      @if (loading()) {
+      {{ isRegisterMode() ? "Creating..." : "Logging in..." }} } @else {
+      {{ isRegisterMode() ? "Register" : "Login" }} }
+    </button>
+
+    <button
+      mat-button
+      type="button"
+      (click)="toggleMode()"
+      [disabled]="loading()"
+      class="toggle-button"
+    >
+      {{
+        isRegisterMode()
+          ? "Already have an account? Login"
+          : "Don't have an account? Register"
+      }}
+    </button>
+  </form>
+</div>
