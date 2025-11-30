@@ -15,7 +15,7 @@ module Backend
   class Application < Rails::Application
     config.load_defaults 7.2
     config.autoload_lib(ignore: %w[assets tasks])
-    config.api_only = true
+    config.api_only = false
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore

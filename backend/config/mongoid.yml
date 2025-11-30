@@ -19,7 +19,5 @@ test:
 production:
   clients:
     default:
-      database: hive_signal_production
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGODB_URI'] || 'mongodb://localhost:27017/hive_signal_production' %>
 

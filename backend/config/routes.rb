@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     get 'auth/current_user', to: 'auth#current_user_info'
     resources :messages, only: [:index, :create]
   end
+
+  get '*path', to: 'application#fallback_index_html', constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 end
