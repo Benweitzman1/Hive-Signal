@@ -9,7 +9,10 @@
     }
   </header>
 
-  <main class="app-main">
+  <main
+    class="app-main"
+    [class.centered]="!isAuthenticated() && !checkingAuth()"
+  >
     @if (checkingAuth()) {
     <div class="loading-container">
       <div class="spinner"></div>
