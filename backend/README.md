@@ -45,8 +45,8 @@ Create a `.env` file in the `backend` directory:
 
 ```env
 # Twilio Test Credentials (No Charges, No Real SMS)
-TWILIO_ACCOUNT_SID=AC6ef9a12bfec8a43926e398706de38b9c
-TWILIO_AUTH_TOKEN=f02406a6ecb673e7d3fd1862b92f170b
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=your_test_auth_token_here
 TWILIO_PHONE_NUMBER=+15005550006
 ```
 
@@ -128,9 +128,9 @@ When using Twilio Test credentials:
 Use Twilio Test credentials in development:
 
 ```env
-TWILIO_ACCOUNT_SID=AC6ef9a12bfec8a43926e398706de38b9c  # Test Account SID
-TWILIO_AUTH_TOKEN=f02406a6ecb673e7d3fd1862b92f170b      # Test Auth Token
-TWILIO_PHONE_NUMBER=+15005550006                        # Test Phone Number
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  # Test Account SID
+TWILIO_AUTH_TOKEN=your_test_auth_token_here            # Test Auth Token
+TWILIO_PHONE_NUMBER=+15005550006                       # Test Phone Number
 ```
 
 **Benefits:**
@@ -147,7 +147,7 @@ TWILIO_PHONE_NUMBER=+15005550006                        # Test Phone Number
 When ready for production, update `.env` with production credentials:
 
 ```env
-TWILIO_ACCOUNT_SID=ACb8ff415e33f987dce8fde20e8fb73e11  # Production Account SID
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  # Production Account SID
 TWILIO_AUTH_TOKEN=your_production_auth_token            # Production Auth Token
 TWILIO_PHONE_NUMBER=+1234567890                        # Your Twilio Phone Number
 ```
