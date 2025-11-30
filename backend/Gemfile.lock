@@ -117,6 +117,7 @@ GEM
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
     ffi (1.17.2-x64-mingw-ucrt)
+    ffi (1.17.2-x86_64-linux-gnu)
     fugit (1.12.1)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -190,6 +191,8 @@ GEM
     net-ssh (7.3.0)
     nio4r (2.7.5)
     nokogiri (1.18.10-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
@@ -322,6 +325,7 @@ GEM
     stringio (3.1.8)
     thor (1.4.0)
     thruster (0.1.16)
+    thruster (0.1.16-x86_64-linux)
     timeout (0.4.4)
     tsort (0.2.0)
     twilio-ruby (7.8.7)
@@ -347,6 +351,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
