@@ -19,6 +19,19 @@ module Backend
     config.api_only = false
 
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+    
+    # Configure session store with secure cookies for production
+    session_options = {
+      key: '_hive_signal_session',
+      expire_after: 2.weeks
+    }
+    
+    # In production, use secure cookies for HTTPS
+    if Rails.env.production?
+      session_options[:secure] = true
+      session_options[:same_site] = :lax
+    end
+    
+    config.middleware.use ActionDispatch::Session::CookieStore, session_options
   end
 end
