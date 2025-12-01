@@ -41,26 +41,9 @@ export class MessagesState {
 
     this.apiService.sendMessage(request).subscribe({
       next: (message) => {
-        console.warn('=== BEFORE UPDATE ===');
-        console.warn('Current messages:', this.messages());
-        console.warn('New message:', message);
-
-        // this.messages.update((msgs) => [message, ...msgs]);
-
-        this.messages.update((msgs) => {
-          const newList = [...msgs, message];
-          console.warn('=== AFTER UPDATE ===');
-          console.warn('Updated messages:', newList);
-          console.warn('New message position:', newList.indexOf(message));
-          return newList;
-        });
-
-        console.warn('=== SIGNAL UPDATED ===');
-        console.warn('Final state:', this.messages());
-
+        this.messages.update((msgs) => [message, ...msgs]);
         this.error.set(null);
         this.loading.set(false);
-        this.loadMessages();
       },
       error: (err) => {
         const errorMessage = err.error?.error || 'Failed to send message';

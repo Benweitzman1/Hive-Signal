@@ -1,3 +1,4 @@
+# Save message to DB first, then send SMS (ensures persistence even if Twilio fails)
 class SendMessage
   attr_reader :message, :error
 

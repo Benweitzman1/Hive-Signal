@@ -1,3 +1,4 @@
+# Username-based authentication (Devise requires email field, so we use dummy email)
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -26,7 +27,6 @@ class User
   end
 
   def self.validates_email_format_of(*attr_names)
-    # Skip email validation
   end
 
   def self.find_for_authentication(conditions)

@@ -25,7 +25,7 @@ export class MessageFormComponent {
 
   readonly form = this.fb.group({
     phone_number: [
-      '+18777804236',
+      '',
       [Validators.required, Validators.pattern(/^\+?[1-9]\d{1,14}$/)],
     ],
     content: ['', [Validators.required, Validators.minLength(1)]],

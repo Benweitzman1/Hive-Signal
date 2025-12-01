@@ -1,3 +1,4 @@
+# Returns success/failure hash instead of raising exceptions
 require 'twilio-ruby'
 
 module Twilio

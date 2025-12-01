@@ -3,7 +3,6 @@ export interface Message {
   phone_number: string;
   content: string;
   created_at: string;
-  session_id: string;
 }
 
 export interface SendMessageRequest {
