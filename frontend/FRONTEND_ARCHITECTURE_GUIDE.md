@@ -10,7 +10,7 @@
 6. [API Service Layer - Deep Dive](#api-service-layer---deep-dive)
 7. [Complete Data Flow Examples](#complete-data-flow-examples)
 8. [Key Technologies Explained](#key-technologies-explained)
-9. [Interview Talking Points](#interview-talking-points)
+9. [Key Design Points](#key-design-points)
 10. [Code Walkthroughs](#code-walkthroughs)
 
 ---
@@ -1303,7 +1303,7 @@ Reactive Forms provide a model-driven approach to handling form inputs.
 
 ---
 
-## Interview Talking Points
+## Key Design Points
 
 ### Architecture Overview
 
@@ -1556,9 +1556,9 @@ export class MessagesApiService {
    - Dependency injection
    - Reactive forms
 
-### Interview Confidence
+### Architecture Summary
 
-You now understand:
+This section summarizes the main points of the design:
 
 - ✅ How each layer works
 - ✅ Why the architecture was chosen
@@ -1566,4 +1566,4 @@ You now understand:
 - ✅ What each component/service does and doesn't do
 - ✅ How to explain it clearly to an interviewer
 
-**Remember:** The key is showing you understand separation of concerns, modern Angular patterns, and how to build maintainable code.
+**Key idea:** Demonstrate clear separation of concerns, use of modern Angular patterns, and a maintainable implementation.

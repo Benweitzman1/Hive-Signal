@@ -1,5 +1,7 @@
 # Bash Commands Guide
 
+This document lists example commands for running the backend locally and manually testing the HTTP API during development.
+
 ## Running the Server
 
 ### Start the Rails Server
