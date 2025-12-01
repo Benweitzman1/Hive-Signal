@@ -19,6 +19,22 @@
       <p>Loading...</p>
     </div>
     } @else if (!isAuthenticated()) {
+    <section class="hero-section">
+      <h2>Welcome to Hive Signal</h2>
+      <p class="hero-subtitle">
+        A simple way to send and track customer SMS conversations using Twilio.
+      </p>
+      <ul class="hero-list">
+        <li>
+          <strong>Quick start</strong>: just choose a username and password
+        </li>
+        <li><strong>Powered by Twilio</strong>: real SMS delivery workflow</li>
+        <li>
+          <strong>Your space</strong>: each account sees only its own messages
+        </li>
+      </ul>
+    </section>
+
     <app-login />
     } @else {
     <section class="form-section">

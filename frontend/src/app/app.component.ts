@@ -20,7 +20,7 @@ import { MessageListComponent } from './features/messages/components/message-lis
 export class AppComponent implements OnInit {
   private readonly authService = inject(AuthApiService);
 
-  readonly title = 'Hive Signal - SMS Messenger';
+  readonly title = 'Hive Signal';
   readonly isAuthenticated = this.authService.isAuthenticated;
   readonly user = this.authService.user;
   readonly checkingAuth = this.authService.checkingAuth;
