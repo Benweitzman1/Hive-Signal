@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # Health check endpoint for Render
+  devise_for :users, skip: :all
+  
   get "up" => "rails/health#show", as: :rails_health_check
 
   namespace :api do
